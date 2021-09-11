@@ -1,0 +1,39 @@
+{
+	"variables": [],
+	"info": {
+		"name": "treinamentos-nelioalves",
+		"_postman_id": "bd3aa231-fcef-0644-6753-6ee1c8da4518",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "category",
+			"description": "",
+			"item": [
+				{
+					"name": "findById",
+					"request": {
+						"url": "",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "find category by id "
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"url": "localhost:8081/category/2",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "find category by id "
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,35 +1,30 @@
 package br.com.franca.springbootapp.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.franca.springbootapp.domain.Category;
+import br.com.franca.springbootapp.services.CategoryService;
 
 @RestController
 @RequestMapping(value = "/category")
 public class CategoryResource {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Category> findAll() {
+	private CategoryService categoryService;
 
-		List<Category> categoryList = buildCategory();
-
-		return categoryList;
-
+	public CategoryResource(CategoryService categoryService) {
+		this.categoryService = categoryService;
 	}
 
-	private List<Category> buildCategory() {
-		Category category1 = new Category(1, "Informática");
-		Category category2 = new Category(2, "Escritório");
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> findAll(@PathVariable Integer id) {
 
-		List<Category> categoryList = new ArrayList<>();
-		categoryList.add(category1);
-		categoryList.add(category2);
-		return categoryList;
+		Category category = categoryService.find(id);
+
+		return ResponseEntity.ok().body(category);
 
 	}
 

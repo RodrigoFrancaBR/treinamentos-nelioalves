@@ -10,7 +10,7 @@ import br.com.franca.springbootapp.domain.Category;
 import br.com.franca.springbootapp.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
 
 	private CategoryService categoryService;

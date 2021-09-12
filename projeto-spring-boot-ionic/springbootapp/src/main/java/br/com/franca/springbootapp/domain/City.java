@@ -1,42 +1,34 @@
 package br.com.franca.springbootapp.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Product {
+public class City implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
 	private String name;
-	private Double price;
 
-	@JsonBackReference
-	@ManyToMany
-	@JoinTable(name = "PRODUCT_CATEGORY"
-	, joinColumns = @JoinColumn(name = "product_id")
-	, inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private List<Category> categories = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "estate_id")
+	private Estate estate;
 
-	public Product() {
+	public City() {
 	}
 
-	public Product(Integer id, String name, Double price) {
+	public City(Integer id, String name, Estate estate) {
 		this.id = id;
 		this.name = name;
-		this.price = price;
+		this.estate = estate;
 	}
 
 	public Integer getId() {
@@ -55,20 +47,12 @@ public class Product {
 		this.name = name;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Estate getEstate() {
+		return estate;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public List<Category> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setEstate(Estate estate) {
+		this.estate = estate;
 	}
 
 	@Override
@@ -87,7 +71,7 @@ public class Product {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		City other = (City) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

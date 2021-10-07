@@ -5,7 +5,8 @@ import java.util.stream.Collectors;
 
 public enum ClientType {
 
-	PHYSICAL_PERSON(1, "Physical Person"), LEGAL_PERSON(2, "Legal Person");
+	PHYSICAL_PERSON(1, "Physical Person")
+	, LEGAL_PERSON(2, "Legal Person");
 
 	private int key;
 	private String value;
@@ -24,7 +25,9 @@ public enum ClientType {
 	}
 
 	public static ClientType toEnum(int key) {
-		return Arrays.asList(ClientType.values()).stream().filter((e) -> e.key == key).collect(Collectors.toList())
+		return Arrays.asList(ClientType.values())
+				.stream().filter((e) -> e.key == key)
+				.collect(Collectors.toList())
 				.get(0);
 
 		/*

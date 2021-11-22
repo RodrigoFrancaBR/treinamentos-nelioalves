@@ -21,7 +21,7 @@ public class WorkerController {
         return repository.findAll();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public Worker findById(@PathVariable Long id){
         return repository.findById(id).get();
     }

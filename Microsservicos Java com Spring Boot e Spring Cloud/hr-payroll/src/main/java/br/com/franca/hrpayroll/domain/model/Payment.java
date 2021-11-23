@@ -7,6 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class Payment {
+
     private String name;
     private Double dailyIncome;
     private Integer days;

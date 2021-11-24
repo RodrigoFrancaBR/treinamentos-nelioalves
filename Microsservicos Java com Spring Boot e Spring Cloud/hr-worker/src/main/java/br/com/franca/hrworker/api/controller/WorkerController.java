@@ -37,7 +37,7 @@ public class WorkerController {
  * acima de 1 o ribbon lança exception
  */
         try {
-            Thread.sleep(1);
+            Thread.sleep(30000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

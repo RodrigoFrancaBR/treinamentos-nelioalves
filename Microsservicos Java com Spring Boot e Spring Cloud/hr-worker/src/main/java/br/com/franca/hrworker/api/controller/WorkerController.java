@@ -33,6 +33,15 @@ public class WorkerController {
     public Worker findById(@PathVariable Long id){
         log.info("obtendo um trabalhador por id: {}", id);
         log.info("PORT: {}", env.getProperty("local.server.port"));
+/**
+ * acima de 1 o ribbon lança exception
+ */
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return repository.findById(id).get();
     }
 }

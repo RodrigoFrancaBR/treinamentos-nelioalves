@@ -34,10 +34,10 @@ public class WorkerController {
         log.info("obtendo um trabalhador por id: {}", id);
         log.info("PORT: {}", env.getProperty("local.server.port"));
 /**
- * acima de 1 o ribbon lança exception
+ * acima de 1000 o ribbon aborta a requisição
  */
         try {
-            Thread.sleep(30000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -18,6 +18,8 @@ public class PaymentController {
 
     private final PaymentService service;
 
+    /** Circuit Breaker
+     */
     @HystrixCommand(fallbackMethod = "getPaymentAlternative")
     @GetMapping(path = "/{workerId}/days/{days}")
     public Payment getPayment(@PathVariable Long workerId, @PathVariable Integer days){

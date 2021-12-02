@@ -36,11 +36,11 @@ public class WorkerController {
 /**
  * Acima de 1000 o ribbon lá do hr-payroll aborta a requisição para essa api
  */
-//        try {
-//            Thread.sleep(300);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         return repository.findById(id).get();
     }

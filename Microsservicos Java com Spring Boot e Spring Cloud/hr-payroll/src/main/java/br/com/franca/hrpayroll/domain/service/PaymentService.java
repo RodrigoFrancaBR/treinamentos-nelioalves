@@ -20,9 +20,6 @@ public class PaymentService {
     public Payment getPayment(long workerId, int days) {
         log.info("obtendo um pagamento por worker id: {} com dias trabalhados: {}", workerId, days);
 
-        Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("id", Long.toString(workerId));
-
         WorkerDTO dto = workerClient.findById(workerId);
         return new Payment(dto.getName(), dto.getDailyIncome(), days);
     }

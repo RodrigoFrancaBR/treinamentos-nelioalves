@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class WorkerDTO {
+    @EqualsAndHashCode.Include
     private Long id;
     private String name;
     private Double dailyIncome;
